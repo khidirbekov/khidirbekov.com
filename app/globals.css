@@ -124,6 +124,18 @@
   }
 }
 
+/* Prevent iOS Safari from auto-zooming when focusing form fields.
+   Mobile Safari zooms in whenever an input's font-size is below 16px.
+   This rule is intentionally OUTSIDE @layer so it beats Tailwind's
+   `text-sm` utility (utility layers win over base, regardless of specificity). */
+@media (max-width: 767px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
 @keyframes code-float {
   0%,
   100% {
